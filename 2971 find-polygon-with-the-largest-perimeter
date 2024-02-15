@@ -1,0 +1,11 @@
+def largestPerimeter(self, nums: List[int]) -> int:
+        nums.sort()
+        l=len(nums)
+        if l>=3:
+            k=l-1
+            while k>=2:
+                if sum(nums[:k])>nums[k]:
+                    return sum(nums[:k+1])
+                else:
+                    k=k-1
+            return -1
