@@ -1,0 +1,45 @@
+def sortArray(self, nums: List[int]) -> List[int]:
+        # Check if the input list is empty or contains only one element
+        if len(nums) <= 1:
+            return nums
+        
+        # Define the merge function to merge two sorted sublists
+        def merge(left, right):
+            merged = []
+            i = j = 0
+            
+            # Merge elements from left and right sublists into the merged list
+            while i < len(left) and j < len(right):
+                if left[i] < right[j]:
+                    merged.append(left[i])
+                    i += 1
+                else:
+                    merged.append(right[j])
+                    j += 1
+            
+            # Append remaining elements from left and right sublists
+            merged.extend(left[i:])
+            merged.extend(right[j:])
+            
+            return merged
+        
+        # Define the merge sort function
+        def merge_sort(arr):
+            # Base case: if the array has only one element, return it
+            if len(arr) <= 1:
+                return arr
+            
+            # Divide the array into two halves
+            mid = len(arr) // 2
+            left_half = arr[:mid]
+            right_half = arr[mid:]
+            
+            # Recursively sort the left and right halves
+            sorted_left = merge_sort(left_half)
+            sorted_right = merge_sort(right_half)
+            
+            # Merge the sorted left and right halves
+            return merge(sorted_left, sorted_right)
+        
+        # Call the merge sort function on the input nums
+        return merge_sort(nums)
