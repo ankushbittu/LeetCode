@@ -11,4 +11,17 @@ def largestPerimeter(self, nums: List[int]) -> int:
             return -1
 # alter native
 
-def largestPerimeter(nums):
+class Solution:
+    def largestPerimeter(self, nums: List[int]) -> int:
+        while 1:
+            if not nums:
+                return -1
+            maxi=max(nums)
+            sumi=sum(nums)-maxi
+
+            if sumi<=maxi:
+                nums.remove(maxi)
+            else:
+                break
+        return sum(nums)
+           
