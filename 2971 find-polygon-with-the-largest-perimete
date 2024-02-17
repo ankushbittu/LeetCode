@@ -10,3 +10,5 @@ def largestPerimeter(self, nums: List[int]) -> int:
                     k=k-1
             return -1
 # alter native
+
+def largestPerimeter(nums):
