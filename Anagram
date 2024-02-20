@@ -1,0 +1,18 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        s1 = set()
+        s2 = set()
+        mydict1 ={}
+        mydict2 ={}
+        for i in s:
+            s1.add(i)  
+        for i in t:
+            s2.add(i)  
+        for i in s1:
+            mydict1.update({i:s.count(i)})
+        for i in s2:
+            mydict2.update({i:t.count(i)})
+        if(mydict1 == mydict2):
+            return True
+        else:
+            return False
